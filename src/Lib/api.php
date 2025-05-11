@@ -51,7 +51,7 @@ class api
         $Content = $Response->toArray();
 
         if (empty($Content)) {
-            $Content=['Error' => 'Empty result.',];
+            $Content=['Error' => 'Empty result.'];
         }
 
         return $Content;
@@ -74,14 +74,14 @@ class api
                 for ($I=1; $I < $J; $I++) {
                     $Url="https://rickandmortyapi.com/api/episode/".$I;
                     $Response = $Client->request(
-                    'GET',
-                    $Url
-                );
-                $Content = $Response->getContent();
+                        'GET',
+                        $Url
+                    );
+                    $Content = $Response->getContent();
 
-                $Content = $Response->toArray();
+                    $Content = $Response->toArray();
 
-                $Episodes[$I] = $Content;
+                    $Episodes[$I] = $Content;
                 }
         return $Episodes;
     }
@@ -93,7 +93,6 @@ class api
                 $Charaters[$Persons]['episode'][$EpisodeId]=$Episodes[$EpisodeId+1];
             }
         }
-        $Data = $Charaters;
-        return $Data;
+        return $Charaters;
     }
 }

@@ -12,6 +12,7 @@ class HomeController extends AbstractController
     #[Route('/{Id}', name: 'Home', defaults:[ 'Id' => 1 ])]
     public function index($Id): Response
     {
+        settype($Id, 'integer');
         if (!is_int($Id)) {
             return $this->redirectToRoute('Home');
         }
