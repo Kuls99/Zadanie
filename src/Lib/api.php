@@ -90,7 +90,8 @@ class api
     {
         foreach ($Charaters as $Persons => $Person) {
             foreach ($Person['episode'] as $EpisodeId => $Episode) {
-                $Charaters[$Persons]['episode'][$EpisodeId]=$Episodes[$EpisodeId+1];
+                $EpisodeNumber=explode("https://rickandmortyapi.com/api/episode/", $Charaters[$Persons]['episode'][$EpisodeId]);
+                $Charaters[$Persons]['episode'][$EpisodeId] = $Episodes[$EpisodeNumber[1]];
             }
         }
         return $Charaters;

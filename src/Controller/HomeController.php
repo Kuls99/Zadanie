@@ -18,10 +18,10 @@ class HomeController extends AbstractController
         }
         $Api = new LibApi();
         $Charaters = $Api->getCharacters($Id);
-        $Episodes = $Api->getEpisodes();
-        if (isset($Charaters['Error'])) {
+         if (isset($Charaters['Error'])) {
             return $this->redirectToRoute('Home');
         }
+        $Episodes = $Api->getEpisodes();
         $Data = $Api->getData($Charaters,$Episodes);
         $IdDown = $Id - 1;
         $IdUp = $Id + 1;
